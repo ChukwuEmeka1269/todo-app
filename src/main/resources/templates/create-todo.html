@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.1/css/bootstrap.min.css}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-6">
+            <h3>Add a new Todo Item</h3>
+            <form th:action="@{/new-todo}" th:object="${newTodo}" th:method="POST">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input class="form-control" type="text" id="description" th:field="*{description}">
+                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Errors</span>
+                </div>
+                <button class="btn btn-success" type="submit">create Todo</button>
+            </form>
+
+        </div>
+
+    </div>
+
+<!--<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>-->
+<!--<script th:src="@{/webjars/bootstrap/5.2.1/bootstrap.min.css}"></script>-->
+</body>
+</html>

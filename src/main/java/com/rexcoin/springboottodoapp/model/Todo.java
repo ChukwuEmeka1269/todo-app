@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ public class Todo extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank(message = "A Description is required")
     private String description;
     private boolean complete;
 
@@ -30,6 +32,5 @@ public class Todo extends BaseEntity{
         this.complete = false;
         this.createdAt = LocalDateTime.now();
         this.updateAt = null;
-
     }
 }

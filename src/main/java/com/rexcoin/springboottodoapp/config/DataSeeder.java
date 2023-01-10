@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Slf4j
 @Component
 public class DataSeeder implements CommandLineRunner {
@@ -24,8 +26,10 @@ public class DataSeeder implements CommandLineRunner {
         if(todoRepository.count() == 0){
             var todo1 = new Todo("Finish Spring5 course");
             todo1.setCreatedBy("ADMIN");
+//            todo1.setCreatedAt(LocalDateTime.now());
             var todo2 = new Todo("Watch Mosh course");
             todo2.setCreatedBy("ADMIN");
+//            todo2.setCreatedAt(LocalDateTime.now());
 
             todoRepository.save(todo1);
             todoRepository.save(todo2);
